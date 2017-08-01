@@ -1,0 +1,16 @@
+{
+  "name": "donleev",
+  "version": "1.0.0",
+  "description": "Track user activity and watch when he's about to leave the page so you can show him something that will make him stay.",
+  "main": "script.js",
+  "dependencies": {
+    "active-timeout.js": "^2.0.0",
+    "modalite": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hristiyan Dodov",
+  "license": "MIT"
+}

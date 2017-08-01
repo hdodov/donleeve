@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Focus Test</title>
+
+    <link rel="stylesheet" type="text/css" href="../node_modules/modalite/dist/modalite.min.css">
+    <script type="text/javascript" src="../node_modules/modalite/dist/modalite.min.js"></script>
+
+    <script type="text/javascript" src="../node_modules/active-timeout.js/dist/active-timeout.min.js"></script>
+    <script type="text/javascript" src="../donleev.js"></script>
+    <script type="text/javascript" src="../script.js"></script>
+
+    <script type="text/javascript">
+        Donleeve.setOptions({
+            storageBlockingString: window.location.pathname,
+            storageBlockingMinutes: 1
+        });
+    </script>
+</head>
+<body>
+    <div id="the-modal" class="modal" data-modal data-modal-has-remote>
+        <div class="modal-container">
+            <div class="modal-close" data-close-modal></div>
+
+            <div class="modal-content">
+                <h1>Exit intent on test.</h1>
+            </div>
+        </div>
+    </div>
+
+    <h1>This one is blocked for 1 minute.</h1>
+</body>
+</html>
