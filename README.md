@@ -136,8 +136,8 @@ ignoreFlagBlocking      // Whether to fire the action once per page visit. `Donl
 Start by including [active-timeout.js](https://github.com/hdodov/active-timeout.js) and Donleeve in your page:
 
 ```html
-<script src="donleeve/node_modules/active-timeout.js/dist/active-timeout.min.js"></script>
-<script src="donleeve/dist/donleeve.min.js"></script>
+<script src="node_modules/active-timeout.js/dist/active-timeout.min.js"></script>
+<script src="node_modules/donleeve/dist/donleeve.min.js"></script>
 ```
 
 After that, initialize Donleeve:

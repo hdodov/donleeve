@@ -1,6 +1,6 @@
 {
   "name": "donleeve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allows you to perform an action when your website visitor is about to leave (exit intent). Even on mobile.",
   "main": "",
   "dependencies": {
