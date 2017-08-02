@@ -18,7 +18,7 @@ window.Donleeve = (function () {
     var exports = {
         options: _conf,
         enabled: true,
-        activated: false,
+        acted: false,
 
         onBound: null,
         onTrigger: null,
@@ -148,7 +148,7 @@ window.Donleeve = (function () {
             return false;
         }
 
-        if (!_conf.ignoreFlagBlocking && exports.activated) {
+        if (!_conf.ignoreFlagBlocking && exports.acted) {
             return false;
         }
 
@@ -166,9 +166,9 @@ window.Donleeve = (function () {
     function action(event) {
         if (
             typeof exports.onAction === "function" &&
-            exports.onAction(event) === true
+            exports.onAction(event) !== false
         ) {
-            exports.activated = true;
+            exports.acted = true;
             addStorageBlock();
         }
     }

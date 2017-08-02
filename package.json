@@ -1,7 +1,7 @@
 {
   "name": "donleeve",
   "version": "1.0.0",
-  "description": "Allows you to do an action when your website visitor is about to leave.",
+  "description": "Allows you to perform an action when your website visitor is about to leave (exit intent). Even on mobile.",
   "main": "",
   "dependencies": {
     "active-timeout.js": "^2.0.0"

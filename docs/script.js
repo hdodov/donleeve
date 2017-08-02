@@ -47,8 +47,6 @@ Donleeve.init({
     if (!Donleeve.options.ignoreFlagBlocking) {
         log("On this page, an option is set that prevents multiple exit intents to appear on one page load. Refresh the page to see how Storage Blocking works. The block will last " + Math.ceil(Donleeve.options.storageBlockingMinutes * 60) + " seconds.");
     }
-
-    return true;
 });
 
 ActiveTimeout.set(function () {
