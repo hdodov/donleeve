@@ -1,16 +1,26 @@
 {
-  "name": "donleev",
+  "name": "donleeve",
   "version": "1.0.0",
-  "description": "Track user activity and watch when he's about to leave the page so you can show him something that will make him stay.",
-  "main": "script.js",
+  "description": "Allows you to do an action when your website visitor is about to leave.",
+  "main": "",
   "dependencies": {
-    "active-timeout.js": "^2.0.0",
-    "modalite": "^1.1.0"
+    "active-timeout.js": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Hristiyan Dodov",
-  "license": "MIT"
+  "license": "MIT",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdodov/donleeve.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hdodov/donleeve/issues"
+  },
+  "homepage": "https://github.com/hdodov/donleeve#readme"
 }

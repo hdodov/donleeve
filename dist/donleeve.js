@@ -5,14 +5,14 @@ window.Donleeve = (function () {
         _lsKeyPurge = "donleevPurge";
 
     var _conf = {
-        bindDelay: 2000,
+        bindDelay: 3000,
         bindEventBlur: true,
         bindEventMouseLeave: true,
         bindEventMouseMove: true,
-        storageBlockingString: _blockWildcard,
-        storageBlockingMinutes: 0.25,
+        storageBlockingRegex: _blockWildcard,
+        storageBlockingMinutes: 10,
         ignoreStorageBlocking: false,
-        ignoreFlagBlocking: true
+        ignoreFlagBlocking: false
     };
 
     var exports = {
@@ -103,7 +103,7 @@ window.Donleeve = (function () {
             blockMS = configTimeToMS(_conf.storageBlockingMinutes);
 
         blocks.push([
-            _conf.storageBlockingString,
+            _conf.storageBlockingRegex,
             Date.now() + blockMS
         ]);
 
@@ -120,17 +120,17 @@ window.Donleeve = (function () {
         var isBlocking = false;
 
         getStorageBlocks().forEach(function (block) {
-            var string = block[0],
+            var regex = block[0],
                 stamp = block[1];
 
-            if (string === _blockWildcard || window.location.href.indexOf(string) !== -1) {
+            if (regex === _blockWildcard || (new RegExp(regex)).exec(window.location.href) !== null) {
                 var blockTimeLeft = getBlockTimeLeft(stamp);
 
                 if (blockTimeLeft > 0) {
                     isBlocking = true;
 
                     if (typeof exports.onStorageBlock === "function") {
-                        exports.onStorageBlock(string, blockTimeLeft);
+                        exports.onStorageBlock(regex, blockTimeLeft);
                     }
                 }
             }
@@ -198,7 +198,15 @@ window.Donleeve = (function () {
         }
 
         if (_conf.bindEventMouseLeave) {
-            document.documentElement.addEventListener("mouseleave", trigger);
+            document.documentElement.addEventListener("mouseleave", function (e) {
+                // Sometimes in Chrome, mouseleave is dispatched when the
+                // mouse *enters* the document. Luckily, the `y` of the event
+                // is greater than 0 in these situations and we can filter
+                // them out.
+                if (e.y < 0) {
+                    trigger(e);
+                }
+            });
         }
 
         if (_conf.bindEventMouseMove) {

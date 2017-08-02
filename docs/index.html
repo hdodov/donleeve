@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donleeve</title>
+
+    <link rel="stylesheet" type="text/css" href="node_modules/modalite/dist/modalite.min.css">
+    <script type="text/javascript" src="node_modules/modalite/dist/modalite.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="maindiv">
+        <h1>Donleeve is a library for exit intent actions!</h1>
+        <p>For better user experience, Donleeve uses <a target="_blank" href="https://www.w3.org/TR/webstorage/#the-localstorage-attribute"><code>localStorage</code></a> to prevent exit intents from popping up too often. You can specify parts of the URL to block with regex if you have different modals on your pages and you want a different block for each. For example, take a look at these links:</p>
+
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li><a href="test/index.html">Test</a></li>
+                <li><a href="param.html?p=1">Param</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="maindiv">
+        <h3>Waiting for <span id="timer">X</span> active seconds to pass to prevent false positives.</h3>
+
+        <p><i>Active</i> means the user must be <strong>viewing</strong> the page. If he opened your site in a new tab for later reading, the counter will start when he <i>focuses</i> the tab. This functionality is achieved via the <a target="_blank" href="https://github.com/hdodov/active-timeout.js">active-timeout.js</a> dependency.</p>
+    </div>
+
+    <div class="maindiv">
+        <h3>What's happening</h3>
+        <div id="logs-main" class="log-window"></div>
+
+        <h3>Click <a href="#" id="purge-link">here</a> to purge all exit intent blocks.</h3>
+    </div>
+
+    <div class="maindiv">
+        <h3>This fills up with events where the exit intent condition was met</h3>
+        <div id="logs-triggers" class="log-window"></div>
+    </div>
+
+    <div id="the-modal" class="modal" data-modal>
+        <div class="modal-container">
+            <div class="modal-close" data-close-modal></div>
+
+            <div class="modal-content">
+                <h1>Here is your exit intent.</h1>
+
+                <p>Feel free to add anything here that would make the user stay or do whatever you want him to do. Perhaps fill a form? Subscribe to your blog? Give you a high five? You decide.</p>
+
+                <p><strong>How this super sick modal was made? With <a target="_blank" href="https://github.com/hdodov/modalite">Modalite</a>. It works really well with Donleeve. You would actually need just one line of JavaScript.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="node_modules/active-timeout.js/dist/active-timeout.min.js"></script>
+    <script type="text/javascript" src="donleeve.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <script type="text/javascript">
+        Donleeve.options.ignoreFlagBlocking = false;
+    </script>
+</body>
+</html>

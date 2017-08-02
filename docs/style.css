@@ -12,14 +12,35 @@ body {
     color: #333;
 }
 
+h1, h2, h3 {
+    text-align: center;
+}
+
+a,
+a:link,
+a:visited {
+    transition: all 0.2s ease-out;
+    text-decoration: none;
+    color: #66c;
+}
+
+a:hover {
+    opacity: 0.6;
+}
+
 .maindiv {
     background: #eee;
     width: 80%;
-    max-width: 35rem;
+    max-width: 38rem;
     margin: 1rem auto;
     padding: 1px 1rem;
     border-radius: 5px;
 }
+
+    .maindiv h1 {
+        font-size: 1.4rem;
+        margin: 1rem 2rem;
+    }
 
 .log-window {
     width: 100%;
@@ -45,3 +66,13 @@ body {
     .log-window p:nth-child(even) {
         background: #ddd;
     }
+
+nav ul {
+    text-align: center;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0.5rem 1rem;
+}
