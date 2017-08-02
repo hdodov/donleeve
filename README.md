@@ -40,7 +40,7 @@ This is a short-term block. When the user sees the exit intent for the first tim
 This is a long-term block that utilizes `localStorage`. It's an array of objects with two values inside:
 
 - Regex string. Controls which pages a block affects. If the regex matched the current URL it will block the current page. If not, this block will be ignored. The default value is `*` and blocks **all** pages.
-- Time integer in the `Date.now()` format. Defines a point in the future until which this block is going to be active.
+- UNIX timestamp. Defines a point in the future until which this block is going to be active.
 
 ## Example
 
