@@ -202,8 +202,9 @@ window.Donleeve = (function () {
                 // Sometimes in Chrome, mouseleave is dispatched when the
                 // mouse *enters* the document. Luckily, the `y` of the event
                 // is greater than 0 in these situations and we can filter
-                // them out.
-                if (e.y < 0) {
+                // them out. Very rarely, a false positive occurs *at* 0 and
+                // we can't filter that.
+                if (e.y <= 0 || e.clientY <= 0) {
                     trigger(e);
                 }
             });
